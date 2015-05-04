@@ -24,4 +24,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postAuthorLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

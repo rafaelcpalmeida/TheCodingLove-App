@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3A27B95A-0BF7-4348-B8E4-5AF2312B39CE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>TheCodingLove</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8BB2A982CFDB61589BDE22256C0848FEEA2A08D4</key>
 		<string>https://github.com/rafaelcpalmeida/TheCodingLove-App.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TheCodingLove/TheCodingLove.xcodeproj/project.xcworkspace</string>
+	<string>TheCodingLove/TheCodingLove.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8BB2A982CFDB61589BDE22256C0848FEEA2A08D4</key>

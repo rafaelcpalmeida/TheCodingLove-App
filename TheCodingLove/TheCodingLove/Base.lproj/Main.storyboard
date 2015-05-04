@@ -21,19 +21,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ke-Kp-I6K" id="Zkz-Bc-s9V">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pUksJTI.gif" translatesAutoresizingMaskIntoConstraints="NO" id="LRE-O6-Tad">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LRE-O6-Tad">
                                             <rect key="frame" x="8" y="52" width="304" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LRE-O6-Tad" secondAttribute="height" multiplier="38:25" id="lW9-u5-7Ne"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/* by Okiii */" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0n-1D-tvc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/* Loading... */" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0n-1D-tvc">
                                             <rect key="frame" x="8" y="260" width="304" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When my post gets published on thecodinglove, but my friends don't share it" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-u9-dtg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-u9-dtg">
                                             <rect key="frame" x="8" y="23" width="304" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UOs-u9-dtg" secondAttribute="height" multiplier="304:21" id="usy-p3-J4M"/>
@@ -81,6 +81,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pUksJTI.gif" width="340" height="192"/>
+        <image name="loading.jpg" width="304" height="200"/>
     </resources>
 </document>

@@ -18,17 +18,9 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         
         DataManager.getTopPostsWithSucess{ (data) -> Void in
-            // Get #1 app name using SwiftyJSON
             let json = JSON(data: data)
-            /*if let appName = json["response"]["posts"][0]["title"].string {
-                println("SwiftyJSON: \(appName)")
-                
-            }*/
             
             for (key: String, subJson: JSON) in json["response"]["posts"] {
-                //Do something you want
-                //println(subJson["title"])
-                //println(subJson["body"])
                 var _title = subJson["title"].stringValue
                 var _body = subJson["body"].stringValue
                 var info = self.getInfo(subJson["body"].stringValue)
@@ -68,18 +60,20 @@ class MainTableViewController: UITableViewController {
         
         if let postCell = cell as? PostTableViewCell
         {
-            /*DataManager.getTopPostsWithSucess{ (data) -> Void in
-                let json = JSON(data: data)
-                    postCell.postTitleLabel.text = json["response"]["posts"][indexPath.row]["title"].string
-            }*/
             if(ready)
             {
                 var _data = titles[indexPath.row].componentsSeparatedByString(";")
-                var _url = NSURL(string: "http://tclhost.com/sgCaFnQ.gif")
-                //var _url = NSURL(string: _data[1])
-                var _img = NSData(contentsOfURL: _url!)
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                    //... Background
+                    var _url = NSURL(string: _data[1].stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByReplacingOccurrencesOfString("]", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
+                    var imageData = NSData(contentsOfURL: _url!)
+                    dispatch_async(dispatch_get_main_queue())
+                    {
+                        //... Novamente na main Queue
+                        postCell.postImage.image = UIImage.animatedImageWithData(imageData!)
+                    }
+                }
                 postCell.postTitleLabel.text = _data[0]
-                postCell.postImage.image = UIImage(data: _img!)
                 postCell.postAuthorLabel.text = _data[2]
             }
         }
@@ -88,13 +82,11 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
-    private func getInfo(str: String) -> (image: String, author: String)
+    private func getInfo(str: String) -> (image: [String], author: String)
     {
-        var image = ""
-
-        //author = str.replace("\\n", template: "")
-        
-        return (image,str.replace("<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>", template: "").replace("\\n", template: ""))
+        var _image: String = str
+        var _author: String = str
+        return (_image.matchesForRegexInText("(http|ftp|https):\\/\\/([\\w\\-_]+(?:(?:\\.[\\w\\-_]+)+))([\\w\\-\\.,@?^=%&amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?") as [String],_author.replace("<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>", template: "").replace("\\n", template: ""))
     }
 
 }

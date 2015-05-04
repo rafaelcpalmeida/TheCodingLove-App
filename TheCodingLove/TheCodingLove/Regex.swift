@@ -3,6 +3,7 @@
 //  TheCodingLove
 //
 //  Created by Ningsuhen Waikhom on 20/12/14.
+//  Adapted by Rafael Almeida on 04/05/15
 //  Copyright (c) 2015 Rafael Almeida. All rights reserved.
 //
 
@@ -51,6 +52,17 @@ extension String {
             return matches.count > 0
         }
         return false
+    }
+    
+    func matchesForRegexInText(regex: String!) -> [String] {
+        
+        let regex = NSRegularExpression(pattern: regex,
+            options: nil, error: nil)!
+        let nsString = self as NSString
+        let results = regex.matchesInString(self,
+            options: nil, range: NSMakeRange(0, nsString.length))
+            as! [NSTextCheckingResult]
+        return map(results) { nsString.substringWithRange($0.range)}
     }
     
     func match(patternString: String) -> Bool {
