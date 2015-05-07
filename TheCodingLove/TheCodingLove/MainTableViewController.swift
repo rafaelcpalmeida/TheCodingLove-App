@@ -63,16 +63,8 @@ class MainTableViewController: UITableViewController {
             if(ready)
             {
                 var _data = titles[indexPath.row].componentsSeparatedByString(";")
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-                    //... Background
-                    var _url = NSURL(string: _data[1].stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByReplacingOccurrencesOfString("]", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
-                    var imageData = NSData(contentsOfURL: _url!)
-                    dispatch_async(dispatch_get_main_queue())
-                    {
-                        //... Novamente na main Queue
-                        postCell.postImage.image = UIImage.animatedImageWithData(imageData!)
-                    }
-                }
+                var _url = _data[1].stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByReplacingOccurrencesOfString("]", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                postCell.postImage.setImageAsync(_url)
                 postCell.postTitleLabel.text = _data[0]
                 postCell.postAuthorLabel.text = _data[2]
             }
